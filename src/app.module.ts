@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DependenteModule } from './app/beneficiario/dependente.module';
+import { DependenteModule } from './app/dependente/dependente.module';
 import { TitularModule } from './app/titular/titular.module';
 
 @Module({

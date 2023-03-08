@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { IDependenteRepository } from 'src/app/beneficiario/dependente.repository';
-import { CreateDependenteDto } from 'src/app/beneficiario/dto/create.dto';
+import { IDependenteRepository } from 'src/app/dependente/dependente.repository';
+import { CreateDependenteDto } from 'src/app/dependente/dto/create.dto';
 import { PrismaService } from 'src/infra/prisma/Prisma.service';
 
 @Injectable()
