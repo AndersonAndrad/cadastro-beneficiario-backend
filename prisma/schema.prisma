@@ -11,13 +11,13 @@ datasource db {
 }
 
 enum SituacaoEnum {
-  ATIVO
-  INATIVO
+  ativo
+  inativo
 }
 
 enum ModalidadeEnum {
-  COPARTICIPACAO
-  MENSALIDADE
+  coparticipacao
+  mensalidade
 }
 
 model Titular {

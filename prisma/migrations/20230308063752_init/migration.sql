@@ -1,8 +1,8 @@
 -- CreateEnum
-CREATE TYPE "SituacaoEnum" AS ENUM ('ATIVO', 'INATIVO');
+CREATE TYPE "SituacaoEnum" AS ENUM ('ativo', 'inativo');
 
 -- CreateEnum
-CREATE TYPE "ModalidadeEnum" AS ENUM ('COPARTICIPACAO', 'MENSALIDADE');
+CREATE TYPE "ModalidadeEnum" AS ENUM ('coparticipacao', 'mensalidade');
 
 -- CreateTable
 CREATE TABLE "Titular" (
