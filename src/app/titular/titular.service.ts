@@ -12,4 +12,8 @@ export class TitularService {
   async create(titular: Prisma.TitularCreateInput) {
     this.titularRepository.create(titular);
   }
+
+  async getTitularById(titularId: string) {
+    return this.titularRepository.getTitularById(titularId);
+  }
 }

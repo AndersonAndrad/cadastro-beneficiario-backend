@@ -1,5 +1,6 @@
+import { Prisma, Titular } from '@prisma/client';
+
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
 import { ITitularRepository } from 'src/app/titular/titular.repository';
 import { PrismaService } from 'src/infra/prisma/Prisma.service';
 
@@ -10,5 +11,9 @@ export class PrismaTitularRepository implements ITitularRepository {
   async create(data: Prisma.TitularCreateInput): Promise<void> {
     await this.prisma.titular.create({ data });
     return;
+  }
+
+  async getTitularById(titularId: string): Promise<Titular> {
+    return this.prisma.titular.findUnique({ where: { id: titularId } });
   }
 }
