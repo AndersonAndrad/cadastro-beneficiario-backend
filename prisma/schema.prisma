@@ -39,6 +39,6 @@ model Dependente {
   adesao    DateTime
   cancelamento DateTime?
   data      DateTime  @default(now())
-  titular   Titular   @relation(fields: [titularId], references: [id])
-  titularId String
+  titular     Titular    @relation(fields: [titularId], references: [id])
+  titularId   String
 }

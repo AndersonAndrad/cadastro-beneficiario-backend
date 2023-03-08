@@ -8,11 +8,7 @@ export class PrismaTitularRepository implements ITitularRepository {
   constructor(private prisma: PrismaService) {}
 
   async create(data: Prisma.TitularCreateInput): Promise<void> {
-    const newUser = await this.prisma.titular.create({
-      data,
-    });
-
-    console.log({ newUser });
+    await this.prisma.titular.create({ data });
     return;
   }
 }
