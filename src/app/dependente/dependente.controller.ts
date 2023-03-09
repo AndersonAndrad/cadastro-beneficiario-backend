@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DependenteService } from './dependente.service';
 import { CreateDependenteDto } from './dto/create.dto';
+import { SearchDependenteDto } from './dto/search.dto';
 
 @ApiTags('Dependente')
 @Controller('dependente')
@@ -11,6 +12,11 @@ export class DependenteController {
   @Post()
   async create(@Body() createDependenteDto: CreateDependenteDto) {
     this.dependenteService.create(createDependenteDto);
+  }
+
+  @Get()
+  search(@Query() filter: SearchDependenteDto) {
+    return this.dependenteService.search(filter);
   }
 
   @Get(':dependenteId')

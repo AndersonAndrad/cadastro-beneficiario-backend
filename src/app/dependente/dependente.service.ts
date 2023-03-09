@@ -4,6 +4,7 @@ import {
   IDependenteRepository,
 } from './dependente.repository';
 import { CreateDependenteDto } from './dto/create.dto';
+import { ISearchDependente } from './dto/search.dto';
 
 @Injectable()
 export class DependenteService {
@@ -18,5 +19,9 @@ export class DependenteService {
 
   getDependenteById(dependenteId: string) {
     return this.dependenteRepository.getDependenteById(dependenteId);
+  }
+
+  search(filter: ISearchDependente) {
+    return this.dependenteRepository.search(filter);
   }
 }

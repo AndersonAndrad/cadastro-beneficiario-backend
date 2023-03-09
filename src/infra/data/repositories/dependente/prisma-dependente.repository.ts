@@ -2,7 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { Dependente } from '@prisma/client';
 import { IDependenteRepository } from 'src/app/dependente/dependente.repository';
 import { CreateDependenteDto } from 'src/app/dependente/dto/create.dto';
+import { ISearchDependente } from 'src/app/dependente/dto/search.dto';
 import { PrismaService } from 'src/infra/prisma/Prisma.service';
+import { IPagination } from '../../interfaces/pagination.interface';
 
 @Injectable()
 export class PrismaDependenteRepository implements IDependenteRepository {
@@ -25,5 +27,33 @@ export class PrismaDependenteRepository implements IDependenteRepository {
     return await this.prisma.dependente.findUnique({
       where: { id: dependenteId },
     });
+  }
+
+  async search({
+    pageIndex,
+    pageSize,
+    ...filter
+  }: ISearchDependente): Promise<IPagination<Dependente>> {
+    const prismaFilter: Omit<ISearchDependente, 'pageIndex' | 'pageSize'> =
+      filter;
+
+    const skip = pageIndex * pageSize;
+
+    const [titulares, totalCount] = await Promise.all([
+      this.prisma.dependente.findMany({
+        where: prismaFilter,
+        skip,
+        take: Number(pageSize),
+      }),
+
+      this.prisma.dependente.count({
+        where: prismaFilter,
+      }),
+    ]);
+
+    return {
+      items: titulares,
+      totalCount,
+    };
   }
 }
