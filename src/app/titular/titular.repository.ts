@@ -16,4 +16,6 @@ export interface ITitularRepository {
     titularId: string,
     titular: Prisma.TitularUpdateInput,
   ): Promise<Titular>;
+
+  disableTitular(titularId: string): Promise<void>;
 }

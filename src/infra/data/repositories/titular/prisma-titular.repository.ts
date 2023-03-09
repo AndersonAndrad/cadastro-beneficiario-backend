@@ -55,4 +55,11 @@ export class PrismaTitularRepository implements ITitularRepository {
       data: titular,
     });
   }
+
+  async disableTitular(titularId: string): Promise<void> {
+    this.prisma.titular.update({
+      where: { id: titularId },
+      data: { cancelamento: new Date() },
+    });
+  }
 }
