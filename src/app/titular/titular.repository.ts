@@ -18,4 +18,6 @@ export interface ITitularRepository {
   ): Promise<Titular>;
 
   disableTitular(titularId: string): Promise<void>;
+
+  enableTitular(titularId: string): Promise<void>;
 }

@@ -29,4 +29,8 @@ export class TitularService {
   disableTitular(titularId: string) {
     this.titularRepository.disableTitular(titularId);
   }
+
+  async enableTitular(titularId: string) {
+    this.titularRepository.enableTitular(titularId);
+  }
 }

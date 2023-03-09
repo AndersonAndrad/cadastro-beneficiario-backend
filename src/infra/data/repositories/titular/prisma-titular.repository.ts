@@ -57,9 +57,16 @@ export class PrismaTitularRepository implements ITitularRepository {
   }
 
   async disableTitular(titularId: string): Promise<void> {
-    this.prisma.titular.update({
+    await this.prisma.titular.update({
       where: { id: titularId },
       data: { cancelamento: new Date() },
+    });
+  }
+
+  async enableTitular(titularId: string): Promise<void> {
+    await this.prisma.titular.update({
+      where: { id: titularId },
+      data: { cancelamento: null },
     });
   }
 }

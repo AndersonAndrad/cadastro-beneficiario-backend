@@ -47,4 +47,9 @@ export class TitularController {
   disableTitular(@Param('titularId') titularId: string) {
     this.titularService.disableTitular(titularId);
   }
+
+  @Patch('enable/:titularId')
+  enableTitular(@Param('titularId') titularId: string) {
+    this.titularService.enableTitular(titularId);
+  }
 }
