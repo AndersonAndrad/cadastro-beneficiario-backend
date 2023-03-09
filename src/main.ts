@@ -1,14 +1,14 @@
-import { AppModule } from './app.module';
-import { DocumentBuilder } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder } from '@nestjs/swagger';
 import { SwaggerModule } from '@nestjs/swagger/dist';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Cadastro beneficiario')
-    .setDescription('')
+    .setDescription('POC para registro de beneficiarios')
     .setVersion('0.1')
     .addTag('CadastroBeneficiario')
     .build();

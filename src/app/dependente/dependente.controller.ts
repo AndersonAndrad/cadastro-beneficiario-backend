@@ -3,8 +3,8 @@ import { ApiTags } from '@nestjs/swagger';
 import { DependenteService } from './dependente.service';
 import { CreateDependenteDto } from './dto/create.dto';
 
-@ApiTags('Beneficiario')
-@Controller('beneficiario')
+@ApiTags('Dependente')
+@Controller('dependente')
 export class DependenteController {
   constructor(private dependenteService: DependenteService) {}
 
