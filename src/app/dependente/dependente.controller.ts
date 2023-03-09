@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DependenteService } from './dependente.service';
 import { CreateDependenteDto } from './dto/create.dto';
@@ -11,5 +11,10 @@ export class DependenteController {
   @Post()
   async create(@Body() createDependenteDto: CreateDependenteDto) {
     this.dependenteService.create(createDependenteDto);
+  }
+
+  @Get(':dependenteId')
+  async getDependenteById(@Param('dependenteId') dependenteId: string) {
+    return this.dependenteService.getDependenteById(dependenteId);
   }
 }

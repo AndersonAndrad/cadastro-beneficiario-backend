@@ -15,4 +15,8 @@ export class DependenteService {
   create(createDependenteDto: CreateDependenteDto) {
     this.dependenteRepository.create(createDependenteDto);
   }
+
+  getDependenteById(dependenteId: string) {
+    return this.dependenteRepository.getDependenteById(dependenteId);
+  }
 }

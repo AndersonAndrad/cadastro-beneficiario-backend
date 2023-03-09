@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Dependente } from '@prisma/client';
 import { IDependenteRepository } from 'src/app/dependente/dependente.repository';
 import { CreateDependenteDto } from 'src/app/dependente/dto/create.dto';
 import { PrismaService } from 'src/infra/prisma/Prisma.service';
@@ -18,5 +19,11 @@ export class PrismaDependenteRepository implements IDependenteRepository {
       },
     });
     return;
+  }
+
+  async getDependenteById(dependenteId: string): Promise<Dependente> {
+    return await this.prisma.dependente.findUnique({
+      where: { id: dependenteId },
+    });
   }
 }
