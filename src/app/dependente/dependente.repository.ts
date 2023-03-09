@@ -22,4 +22,9 @@ export interface IDependenteRepository {
    * desactive dependente without delete
    */
   desactiveDependente(titularId: string): Promise<void>;
+
+  /**
+   * enable dependente and remove cencelamento date
+   */
+  enableDependente(dependenteId: string): Promise<void>;
 }

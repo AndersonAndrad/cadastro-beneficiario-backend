@@ -33,4 +33,8 @@ export class DependenteService {
   desactiveTitular(titularId: string) {
     this.dependenteRepository.desactiveDependente(titularId);
   }
+
+  enableDependente(dependenteId: string) {
+    this.dependenteRepository.enableDependente(dependenteId);
+  }
 }

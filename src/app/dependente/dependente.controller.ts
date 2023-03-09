@@ -46,4 +46,9 @@ export class DependenteController {
   desactiveTitular(@Param('titularId') titularId: string) {
     this.dependenteService.desactiveTitular(titularId);
   }
+
+  @Patch('enable/:dependenteId')
+  enableDependente(@Param('dependenteId') dependenteId: string) {
+    this.dependenteService.desactiveTitular(dependenteId);
+  }
 }

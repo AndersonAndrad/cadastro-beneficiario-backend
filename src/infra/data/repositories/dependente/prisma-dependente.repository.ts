@@ -74,4 +74,11 @@ export class PrismaDependenteRepository implements IDependenteRepository {
       data: { cancelamento: new Date() },
     });
   }
+
+  async enableDependente(dependenteId: string): Promise<void> {
+    await this.prisma.dependente.update({
+      where: { id: dependenteId },
+      data: { cancelamento: null },
+    });
+  }
 }
