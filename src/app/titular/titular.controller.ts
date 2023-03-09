@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateTitularDto } from './dto/create.dto';
+import { SearchTitularDto } from './dto/search.dto';
 
 import { TitularService } from './titular.service';
 
@@ -12,6 +13,11 @@ export class TitularController {
   @Post()
   async create(@Body() createTitularDto: CreateTitularDto) {
     this.titularService.create(createTitularDto);
+  }
+
+  @Get()
+  async search(@Query() searchTitularDto: SearchTitularDto) {
+    return this.titularService.search(searchTitularDto);
   }
 
   @Get(':titularId')

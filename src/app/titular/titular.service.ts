@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { ISearchTitular } from './dto/search.dto';
 
 import { ITitularRepository, TITULAR_REPOSITORY } from './titular.repository';
 
@@ -15,5 +16,9 @@ export class TitularService {
 
   async getTitularById(titularId: string) {
     return this.titularRepository.getTitularById(titularId);
+  }
+
+  async search(filter: ISearchTitular) {
+    return this.titularRepository.search(filter);
   }
 }
