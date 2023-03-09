@@ -43,7 +43,7 @@ export class TitularController {
     this.titularService.update(titularId, titular);
   }
 
-  @Patch()
+  @Patch('disable/:titularId')
   disableTitular(@Param('titularId') titularId: string) {
     this.titularService.disableTitular(titularId);
   }
