@@ -5,9 +5,9 @@ import { IPaginate } from 'src/infra/data/interfaces/pagination.interface';
 
 export class SearchTitularDto implements ISearchTitular {
   /* Optionals */
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ enum: ModalidadeEnum })
   modalidade?: ModalidadeEnum;
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ enum: SituacaoEnum })
   situacao?: SituacaoEnum;
   @ApiPropertyOptional()
   nome?: string;
