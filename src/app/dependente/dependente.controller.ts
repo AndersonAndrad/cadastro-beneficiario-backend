@@ -11,7 +11,7 @@ export class DependenteController {
   constructor(private dependenteService: DependenteService) {}
 
   @Post()
-  async create(@Body() createDependenteDto: CreateDependenteDto) {
+  create(@Body() createDependenteDto: CreateDependenteDto) {
     this.dependenteService.create(createDependenteDto);
   }
 
@@ -21,7 +21,7 @@ export class DependenteController {
   }
 
   @Get(':dependenteId')
-  async getDependenteById(@Param('dependenteId') dependenteId: string) {
+  getDependenteById(@Param('dependenteId') dependenteId: string) {
     return this.dependenteService.getDependenteById(dependenteId);
   }
 
