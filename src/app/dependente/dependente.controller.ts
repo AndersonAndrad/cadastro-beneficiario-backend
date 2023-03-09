@@ -42,13 +42,13 @@ export class DependenteController {
     return this.dependenteService.update(dependenteId, updateDependenteDto);
   }
 
-  @Patch('desactive/:titularId')
-  desactiveTitular(@Param('titularId') titularId: string) {
-    this.dependenteService.desactiveTitular(titularId);
+  @Patch('disable/:dependenteId')
+  desactiveTitular(@Param('dependenteId') dependenteId: string) {
+    this.dependenteService.disableDependente(dependenteId);
   }
 
   @Patch('enable/:dependenteId')
   enableDependente(@Param('dependenteId') dependenteId: string) {
-    this.dependenteService.desactiveTitular(dependenteId);
+    this.dependenteService.enableDependente(dependenteId);
   }
 }

@@ -30,8 +30,8 @@ export class DependenteService {
     return this.dependenteRepository.update(dependenteId, dependente);
   }
 
-  desactiveTitular(titularId: string) {
-    this.dependenteRepository.desactiveDependente(titularId);
+  disableDependente(dependenteId: string) {
+    this.dependenteRepository.disableDependente(dependenteId);
   }
 
   enableDependente(dependenteId: string) {
