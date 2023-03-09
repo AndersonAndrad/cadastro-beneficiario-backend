@@ -1,5 +1,4 @@
 import { Dependente } from '@prisma/client';
-
 import { IPagination } from 'src/infra/data/interfaces/pagination.interface';
 import { CreateDependenteDto } from './dto/create.dto';
 import { ISearchDependente } from './dto/search.dto';
@@ -18,4 +17,9 @@ export interface IDependenteRepository {
     dependenteId: string,
     dependente: IUpdateDependente,
   ): Promise<Dependente>;
+
+  /**
+   * desactive dependente without delete
+   */
+  desactiveDependente(titularId: string): Promise<void>;
 }

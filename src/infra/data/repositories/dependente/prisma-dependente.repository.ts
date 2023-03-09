@@ -67,4 +67,11 @@ export class PrismaDependenteRepository implements IDependenteRepository {
       data: dependente,
     });
   }
+
+  async desactiveDependente(titularId: string): Promise<void> {
+    await this.prisma.dependente.update({
+      where: { id: titularId },
+      data: { cancelamento: new Date() },
+    });
+  }
 }

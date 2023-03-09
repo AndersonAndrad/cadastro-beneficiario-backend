@@ -29,4 +29,8 @@ export class DependenteService {
   update(dependenteId: string, dependente: IUpdateDependente) {
     return this.dependenteRepository.update(dependenteId, dependente);
   }
+
+  desactiveTitular(titularId: string) {
+    this.dependenteRepository.desactiveDependente(titularId);
+  }
 }

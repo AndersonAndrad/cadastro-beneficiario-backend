@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DependenteService } from './dependente.service';
 import { CreateDependenteDto } from './dto/create.dto';
@@ -31,5 +40,10 @@ export class DependenteController {
     @Body() updateDependenteDto: UpdateDependenteDto,
   ) {
     return this.dependenteService.update(dependenteId, updateDependenteDto);
+  }
+
+  @Patch('desactive/:titularId')
+  desactiveTitular(@Param('titularId') titularId: string) {
+    this.dependenteService.desactiveTitular(titularId);
   }
 }
