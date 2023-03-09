@@ -3,6 +3,7 @@ import { Dependente } from '@prisma/client';
 import { IDependenteRepository } from 'src/app/dependente/dependente.repository';
 import { CreateDependenteDto } from 'src/app/dependente/dto/create.dto';
 import { ISearchDependente } from 'src/app/dependente/dto/search.dto';
+import { IUpdateDependente } from 'src/app/dependente/dto/update.dto';
 import { PrismaService } from 'src/infra/prisma/Prisma.service';
 import { IPagination } from '../../interfaces/pagination.interface';
 
@@ -55,5 +56,15 @@ export class PrismaDependenteRepository implements IDependenteRepository {
       items: titulares,
       totalCount,
     };
+  }
+
+  async update(
+    dependenteId: string,
+    dependente: IUpdateDependente,
+  ): Promise<Dependente> {
+    return this.prisma.dependente.update({
+      where: { id: dependenteId },
+      data: dependente,
+    });
   }
 }

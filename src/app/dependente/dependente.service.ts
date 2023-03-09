@@ -5,6 +5,7 @@ import {
 } from './dependente.repository';
 import { CreateDependenteDto } from './dto/create.dto';
 import { ISearchDependente } from './dto/search.dto';
+import { IUpdateDependente } from './dto/update.dto';
 
 @Injectable()
 export class DependenteService {
@@ -23,5 +24,9 @@ export class DependenteService {
 
   search(filter: ISearchDependente) {
     return this.dependenteRepository.search(filter);
+  }
+
+  update(dependenteId: string, dependente: IUpdateDependente) {
+    return this.dependenteRepository.update(dependenteId, dependente);
   }
 }
