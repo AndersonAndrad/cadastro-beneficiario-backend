@@ -26,7 +26,7 @@ model Titular {
   situacao SituacaoEnum
   modalidade ModalidadeEnum
   adesao DateTime
-  cancelamento DateTime
+  cancelamento DateTime?
   dependentes Dependente[]
   data DateTime @default(now())
 }
