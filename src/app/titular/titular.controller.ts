@@ -12,22 +12,22 @@ export class TitularController {
   constructor(private titularService: TitularService) {}
 
   @Post()
-  async create(@Body() createTitularDto: CreateTitularDto) {
+  create(@Body() createTitularDto: CreateTitularDto) {
     this.titularService.create(createTitularDto);
   }
 
   @Get()
-  async search(@Query() searchTitularDto: SearchTitularDto) {
+  search(@Query() searchTitularDto: SearchTitularDto) {
     return this.titularService.search(searchTitularDto);
   }
 
   @Get(':titularId')
-  async getTitularById(@Param('titularId') titularId: string) {
+  getTitularById(@Param('titularId') titularId: string) {
     return this.titularService.getTitularById(titularId);
   }
 
   @Put(':titularId')
-  async update(
+  update(
     @Param('titularId') titularId: string,
     @Body() titular: UpdateTitularDto,
   ) {
