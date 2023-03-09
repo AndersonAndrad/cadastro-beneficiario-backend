@@ -21,4 +21,8 @@ export class TitularService {
   async search(filter: ISearchTitular) {
     return this.titularRepository.search(filter);
   }
+
+  async update(titularId: string, titular: Prisma.TitularUpdateInput) {
+    return this.titularRepository.update(titularId, titular);
+  }
 }

@@ -45,4 +45,14 @@ export class PrismaTitularRepository implements ITitularRepository {
       totalCount,
     };
   }
+
+  async update(
+    titularId: string,
+    titular: Prisma.TitularUpdateInput,
+  ): Promise<Titular> {
+    return await this.prisma.titular.update({
+      where: { id: titularId },
+      data: titular,
+    });
+  }
 }

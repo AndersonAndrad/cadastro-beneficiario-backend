@@ -11,4 +11,9 @@ export interface ITitularRepository {
   getTitularById(titularId: string): Promise<Titular>;
 
   search(filter: ISearchTitular): Promise<IPagination<Titular>>;
+
+  update(
+    titularId: string,
+    titular: Prisma.TitularUpdateInput,
+  ): Promise<Titular>;
 }

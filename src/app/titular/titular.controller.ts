@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateTitularDto } from './dto/create.dto';
 import { SearchTitularDto } from './dto/search.dto';
+import { UpdateTitularDto } from './dto/update.dto';
 
 import { TitularService } from './titular.service';
 
@@ -23,5 +24,13 @@ export class TitularController {
   @Get(':titularId')
   async getTitularById(@Param('titularId') titularId: string) {
     return this.titularService.getTitularById(titularId);
+  }
+
+  @Put(':titularId')
+  async update(
+    @Param('titularId') titularId: string,
+    @Body() titular: UpdateTitularDto,
+  ) {
+    this.titularService.update(titularId, titular);
   }
 }
